@@ -1,14 +1,14 @@
-// const options = require('../utils/parseCLI')();
-// const usage   = require('../utils/getUsage');
+require('dotenv').config();
 
-// if ( !("NODE_ENV" in options && (options.NODE_ENV !== null))) {
-//   console.log(usage());
-//   process.exit();
-// }
-
-// // Default port
-// if ( !("PORT" in options) || options.PORT === null ) {
-//   options.PORT = 4000; 
-// }
-
-// module.exports = options;
+module.exports = {
+  app: {
+    port: process.env.APP_PORT || 3000
+  },
+  db: {
+    port: process.env.DB_PORT || 3306,
+    database: process.env.DB_NAME || 'area-api',
+    password: process.env.DB_PASSWORD || 'password',
+    user: process.env.DB_USERNAME || 'admin',
+    host: process.env.DB_HOST || '127.0.0.1'
+  }
+}
